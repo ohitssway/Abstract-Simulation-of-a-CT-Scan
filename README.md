@@ -15,10 +15,10 @@ shape.
 
 Input:
 
-![alt tag](ExampleInput.png)
+![alt tag](ExampleInput.PNG)
 
 Output:
-![alt tag](ExampleOutput.png)
+![alt tag](ExampleOutput.PNG)
 
 ##Running the application
 I've attached an .exe of the original Visual Basic Project
