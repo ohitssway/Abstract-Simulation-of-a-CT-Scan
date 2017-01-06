@@ -1,0 +1,231 @@
+
+Public Class frmCATSCAN
+    Dim squares(5, 5) As Integer
+    Dim slope1(5, 5) As Integer
+    Dim slopeNeg1(5, 5) As Integer
+    Dim slope2(5, 5) As Integer
+    Dim slope As Double
+    Dim cntrCol As Integer
+    Dim cntrRow As Integer
+    Dim eqMin As Double
+    Dim eqMax As Double
+    Dim lineTotal As Double
+    Dim eqCntr As Double
+    Dim colSet As Integer
+    Dim rowSet As Integer
+    Dim row As Integer
+    Dim col As Integer
+    Dim i As Integer
+    Dim btnTagValue As Integer
+    Dim sum(5) As Integer
+    Dim cntr As Integer
+    Private Sub frmCATSCAN_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.BackColor = Color.Aquamarine
+        Do While rowSet <= 5
+            Do While colSet <= 5
+                squares(rowSet, colSet) = 0
+                rowSet += 1
+            Loop
+            colSet += 1
+        Loop
+    End Sub
+    Private Sub btnReset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReset.Click
+        row = 0
+        For Me.row = 0 To 5
+            For Me.col = 0 To 5
+                squares(row, col) = 0
+            Next Me.col
+        Next Me.row
+        btn1.BackColor = color.lime
+        btn2.BackColor = color.lime
+        btn3.BackColor = color.lime
+        btn4.BackColor = color.lime
+        btn5.BackColor = color.lime
+        btn6.BackColor = color.lime
+        btn7.BackColor = color.lime
+        btn8.BackColor = color.lime
+        btn9.BackColor = color.lime
+        btn10.BackColor = color.lime
+        btn11.BackColor = color.lime
+        btn12.BackColor = color.lime
+        btn13.BackColor = color.lime
+        btn14.BackColor = color.lime
+        btn15.BackColor = color.lime
+        btn16.BackColor = color.lime
+        btn17.BackColor = color.lime
+        btn18.BackColor = color.lime
+        btn19.BackColor = color.lime
+        btn20.BackColor = color.lime
+        btn21.BackColor = color.lime
+        btn22.BackColor = color.lime
+        btn23.BackColor = color.lime
+        btn24.BackColor = color.lime
+        btn25.BackColor = color.lime
+        btn26.BackColor = color.lime
+        btn27.BackColor = color.lime
+        btn28.BackColor = color.lime
+        btn29.BackColor = color.lime
+        btn30.BackColor = color.lime
+        btn31.BackColor = color.lime
+        btn32.BackColor = color.lime
+        btn33.BackColor = color.lime
+        btn34.BackColor = color.lime
+        btn35.BackColor = color.lime
+        btn36.BackColor = color.lime
+
+        btn1.Enabled = True
+        btn2.Enabled = True
+        btn3.Enabled = True
+        btn4.Enabled = True
+        btn5.Enabled = True
+        btn6.Enabled = True
+        btn7.Enabled = True
+        btn8.Enabled = True
+        btn9.Enabled = True
+        btn10.Enabled = True
+        btn11.Enabled = True
+        btn12.Enabled = True
+        btn13.Enabled = True
+        btn14.Enabled = True
+        btn15.Enabled = True
+        btn16.Enabled = True
+        btn17.Enabled = True
+        btn18.Enabled = True
+        btn19.Enabled = True
+        btn20.Enabled = True
+        btn21.Enabled = True
+        btn22.Enabled = True
+        btn23.Enabled = True
+        btn24.Enabled = True
+        btn25.Enabled = True
+        btn26.Enabled = True
+        btn27.Enabled = True
+        btn28.Enabled = True
+        btn29.Enabled = True
+        btn30.Enabled = True
+        btn31.Enabled = True
+        btn32.Enabled = True
+        btn33.Enabled = True
+        btn34.Enabled = True
+        btn35.Enabled = True
+        btn36.Enabled = True
+    End Sub
+    Private Sub btnInput_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1.Click, btn2.Click, btn3.Click, btn4.Click, btn5.Click, btn6.Click, btn7.Click, btn8.Click, btn9.Click, btn10.Click, btn11.Click, btn12.Click, btn13.Click, btn14.Click, btn15.Click, btn16.Click, btn17.Click, btn18.Click, btn19.Click, btn20.Click, btn21.Click, btn22.Click, btn23.Click, btn24.Click, btn25.Click, btn26.Click, btn27.Click, btn28.Click, btn29.Click, btn30.Click, btn31.Click, btn32.Click, btn33.Click, btn34.Click, btn35.Click, btn36.Click
+        Dim btnSquareClicked As btn = sender
+        btnTagValue = btnSquareClicked.Tag
+        If btnTagValue <= 5 Then
+            squares(0, btnTagValue) = 1
+        ElseIf btnTagValue <= 11 And btnTagValue >= 6 Then
+            squares(1, btnTagValue - 6) = 1
+        ElseIf btnTagValue <= 17 And btnTagValue >= 12 Then
+            squares(2, btnTagValue - 12) = 1
+        ElseIf btnTagValue <= 23 And btnTagValue >= 18 Then
+            squares(3, btnTagValue - 18) = 1
+        ElseIf btnTagValue <= 29 And btnTagValue >= 24 Then
+            squares(4, btnTagValue - 24) = 1
+        ElseIf btnTagValue <= 35 And btnTagValue >= 30 Then
+            squares(5, btnTagValue - 30) = 1
+        End If
+        btnSquareClicked.BackColor = Color.Orange
+        btnSquareClicked.Enabled = False
+    End Sub
+    Private Sub btnCalc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalc.Click
+        btn1.BackColor = Color.Lime
+        btn2.BackColor = Color.Lime
+        btn3.BackColor = Color.Lime
+        btn4.BackColor = Color.Lime
+        btn5.BackColor = Color.Lime
+        btn6.BackColor = Color.Lime
+        btn7.BackColor = Color.Lime
+        btn8.BackColor = Color.Lime
+        btn9.BackColor = Color.Lime
+        btn10.BackColor = Color.Lime
+        btn11.BackColor = Color.Lime
+        btn12.BackColor = Color.Lime
+        btn13.BackColor = Color.Lime
+        btn14.BackColor = Color.Lime
+        btn15.BackColor = Color.Lime
+        btn16.BackColor = Color.Lime
+        btn17.BackColor = Color.Lime
+        btn18.BackColor = Color.Lime
+        btn19.BackColor = Color.Lime
+        btn20.BackColor = Color.Lime
+        btn21.BackColor = Color.Lime
+        btn22.BackColor = Color.Lime
+        btn23.BackColor = Color.Lime
+        btn24.BackColor = Color.Lime
+        btn25.BackColor = Color.Lime
+        btn26.BackColor = Color.Lime
+        btn27.BackColor = Color.Lime
+        btn28.BackColor = Color.Lime
+        btn29.BackColor = Color.Lime
+        btn30.BackColor = Color.Lime
+        btn31.BackColor = Color.Lime
+        btn32.BackColor = Color.Lime
+        btn33.BackColor = Color.Lime
+        btn34.BackColor = Color.Lime
+        btn35.BackColor = Color.Lime
+        btn36.BackColor = Color.Lime
+
+        btn1.Enabled = False
+        btn2.Enabled = False
+        btn3.Enabled = False
+        btn4.Enabled = False
+        btn5.Enabled = False
+        btn6.Enabled = False
+        btn7.Enabled = False
+        btn8.Enabled = False
+        btn9.Enabled = False
+        btn10.Enabled = False
+        btn11.Enabled = False
+        btn12.Enabled = False
+        btn13.Enabled = False
+        btn14.Enabled = False
+        btn15.Enabled = False
+        btn16.Enabled = False
+        btn17.Enabled = False
+        btn18.Enabled = False
+        btn19.Enabled = False
+        btn20.Enabled = False
+        btn21.Enabled = False
+        btn22.Enabled = False
+        btn23.Enabled = False
+        btn24.Enabled = False
+        btn25.Enabled = False
+        btn26.Enabled = False
+        btn27.Enabled = False
+        btn28.Enabled = False
+        btn29.Enabled = False
+        btn30.Enabled = False
+        btn31.Enabled = False
+        btn32.Enabled = False
+        btn33.Enabled = False
+        btn34.Enabled = False
+        btn35.Enabled = False
+        btn36.Enabled = False
+        i = 0
+        cntr = 0
+        Do While cntrRow <= 5
+            i += 1
+            For Me.cntrCol = 0 To 5
+                cntrRow = cntrRow - 1
+                sum(cntr) += squares(cntrRow, cntrCol)
+            Next Me.cntrCol
+            cntrRow = 5 - i
+            cntr += 1
+        Loop
+    End Sub
+    Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
+        i = 0
+        cntr = 0
+        Do While cntrRow <= 5
+            i += 1
+            For Me.cntrCol = 0 To 5
+                cntrRow = cntrRow - 1
+
+            Next Me.cntrCol
+            cntrRow = 5 - i
+            cntr += 1
+        Loop
+    End Sub
+End Class
